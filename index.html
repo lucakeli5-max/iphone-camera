@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>iPhone Caméra P2P</title>
+    <!-- Tailwind CSS pour un design moderne et épuré style iOS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- PeerJS pour la connexion WebRTC simplifiée -->
+    <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
+    <!-- QRCode.js pour générer le QR code -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        .ios-glass {
+            background: rgba(28, 28, 30, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between p-4">
+
+    <!-- En-tête -->
+    <header class="text-center py-4">
+        <h1 class="text-xl font-semibold tracking-tight">Caméra P2P iOS</h1>
+        <p id="status-text" class="text-xs text-gray-400 mt-1">Prêt à connecter</p>
+    </header>
+
+    <!-- Écran principal -->
+    <main class="flex-1 flex flex-col items-center justify-center max-w-md mx-auto w-full">
+
+        <!-- Vue Menu de Sélection -->
+        <div id="view-menu" class="w-full space-y-4">
+            <div class="ios-glass p-6 rounded-3xl text-center space-y-4 shadow-2xl">
+                <h2 class="text-lg font-medium">Choisissez votre rôle</h2>
+                <p class="text-sm text-gray-400">Transformez l'un de vos iPhones en caméra et l'autre en moniteur de contrôle.</p>
+                
+                <div class="space-y-3 pt-2">
+                    <button onclick="startSender()" class="w-full py-4 bg-blue-600 hover:bg-blue-500 active:scale-95 transition rounded-2xl font-medium shadow-lg text-white flex items-center justify-center space-x-2">
+                        <span>📹</span>
